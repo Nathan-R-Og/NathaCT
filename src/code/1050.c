@@ -73,11 +73,13 @@ OSTask D_800F04E0[2] = {
     0x80200CB0,
     0xC00
 }};
-
+*/
 
 s32 D_800F0560 = 0;
 //levelGroup segmented pointers
-u32 D_800F0564[2] = {0x0301B5E8, 0x0301B5F4};
+extern AnimPointer Armadillo_unk1Pointers_Animp;
+extern AnimPointer Armadillo_unk2Pointers_Animp;
+AnimPointer* D_800F0564[2] = {&Armadillo_unk1Pointers_Animp, &Armadillo_unk2Pointers_Animp};
 
 s32 D_800F056C[6] = {7, 170, 5, 135, 180, 98};
 s32 D_800F0584[6] = {49, 5, 180, 5, 170, 81};
@@ -98,12 +100,12 @@ Gfx* ChameleonGfxs[6] = {
 };
 
 Gfx* D_800F0650[6] = {
-Battle_Chameleons_Davy_restAssociate_Gfx,
-Battle_Chameleons_Jack_restAssociate_Gfx,
-Battle_Chameleons_Fred_restAssociate_Gfx,
-Battle_Chameleons_Linda_restAssociate_Gfx,
-Battle_Chameleons_Black_restAssociate_Gfx,
-Battle_Chameleons_White_restAssociate_Gfx
+    Battle_Chameleons_Davy_restAssociate_Gfx,
+    Battle_Chameleons_Jack_restAssociate_Gfx,
+    Battle_Chameleons_Fred_restAssociate_Gfx,
+    Battle_Chameleons_Linda_restAssociate_Gfx,
+    Battle_Chameleons_Black_restAssociate_Gfx,
+    Battle_Chameleons_White_restAssociate_Gfx
 };
 
 s32 gFramebufferIndex = 0;
@@ -116,7 +118,7 @@ char D_800F067C[] = "BH";
 s32 D_800F0680[4] = {0, 0, 0, 0};
 s32 RumblePakError = 0;
 s32 D_800F0694[3] = {0, 0, 0};
-*/
+
 
 void bootproc(void) {
     __osInitialize_common();
