@@ -200,8 +200,6 @@ extern Gfx JungleLand_extThree_Gfx[];
 extern ModelCollision JungleLand_extThree_ColH;
 extern Gfx JungleLand_extFour_Gfx[];
 extern ModelCollision JungleLand_extFour_ColH;
-extern Gfx JungleLand_extZero_Gfx[];
-extern ModelCollision JungleLand_extZero_ColH;
 extern Gfx JungleLand_extOne_Gfx[];
 extern ModelCollision JungleLand_extOne_ColH;
 extern Gfx JungleLand_extTwo_Gfx[];
@@ -279,6 +277,23 @@ extern ModelCollision JungleLand_water2_ColH;
 extern Gfx Global_pole_Gfx[];
 extern ModelCollision Global_pole_ColH;
 
+extern Gfx funnyAsset_room0_mesh[];
+extern ModelCollision funnyAsset_room0_collision;
+extern Gfx tall_platform_mesh[];
+extern ModelCollision tall_platform_collision;
+extern Gfx stairs_mesh[];
+extern ModelCollision stairs_collision;
+extern Gfx hinge_mesh[];
+extern ModelCollision hinge_collision;
+extern Gfx moving_platform_mesh[];
+extern ModelCollision moving_platform_collision;
+extern Gfx grill_mesh[];
+extern ModelCollision grill_collision;
+extern Gfx hexagon_mesh[];
+extern ModelCollision hexagon_collision;
+extern Gfx square_mesh[];
+extern ModelCollision square_collision;
+
 Mtx JungleLand_IMtx1 = IDENTITY;
 
 enum JungleLand_Models {
@@ -287,13 +302,13 @@ enum JungleLand_Models {
     G_EXIT_SHADOW_NORTH_MODEL,
     G_EXIT_SHADOW_EAST_MODEL,
     G_EXIT_SHADOW_WEST_MODEL,
-    G_ALBL_EXIT_MODEL,
-    G_SANDPIT_MODEL,
-    G_BOSS_BRIDGE_MODEL,
-    G_AL_POLE_MODEL,
-    G_ALBL_DOOR_MODEL,
-    G_AL_SPIN_DOOR_MODEL,
-    G_BL_LAVA_FLOOR_MODEL,
+    JL_STAIRS,
+    JL_TALL_PLATFORM,
+    JL_HINGE,
+    JL_MOVING_PLATFORM,
+    JL_GRILL,
+    JL_HEXAGON,
+    JL_SQUARE,
     G_BL_LAVA_MODEL,
     G_BL_LAVA2_MODEL,
     G_BL_LAVA3_MODEL,
@@ -412,13 +427,15 @@ StageModel  JungleLand_stageModels[122] = {
     {&Global_exitShadowNorth_Gfx[0], &Global_exitShadowNorth_ColH, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, },
     {&Global_exitShadowEast_Gfx[0], &Global_exitShadowEast_ColH, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, },
     {&Global_exitShadowWest_Gfx[0], &Global_exitShadowWest_ColH, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, },
-    {&Global_ALBLExit_Gfx[0], &Global_ALBLExit_ColH, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, },
-    {&Global_sandPit_Gfx[0], &Global_sandPit_ColH, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, },
-    {&Global_BossBridge_Gfx[0], &Global_BossBridge_ColH, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, },
-    {&Global_ALPole_Gfx[0], &Global_ALPole_ColH, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, },
-    {&Global_ALBLDoor_Gfx[0], &Global_ALBLDoor_ColH, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, },
-    {&Global_ALSpinDoor_Gfx[0], &Global_ALSpinDoor_ColH, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, },
-    {&Global_BLLavaFloor_Gfx[0], &Global_BLLavaFloor_ColH, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, },
+
+    {&stairs_mesh[0], &stairs_collision, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, },
+    {&tall_platform_mesh[0], &tall_platform_collision, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, },
+    {&hinge_mesh[0], &hinge_collision, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, },
+    {&moving_platform_mesh[0], &moving_platform_collision, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, },
+    {&grill_mesh[0], &grill_collision, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, },
+    {&hexagon_mesh[0], &hexagon_collision, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, },
+    {&square_mesh[0], &square_collision, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, },
+
     {&Global_BLLava_Gfx[0], &Global_BLLava_ColH, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, },
     {&Global_BLLava2_Gfx[0], &Global_BLLava2_ColH, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, },
     {&Global_BLLava3_Gfx[0], &Global_BLLava3_ColH, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, },
@@ -490,7 +507,9 @@ StageModel  JungleLand_stageModels[122] = {
     {&JungleLand_holeLogBottom_Gfx[0], &JungleLand_holeLogBottom_ColH, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, },
     {&JungleLand_extThree_Gfx[0], &JungleLand_extThree_ColH, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, },
     {&JungleLand_extFour_Gfx[0], &JungleLand_extFour_ColH, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, },
-    {&JungleLand_extZero_Gfx[0], &JungleLand_extZero_ColH, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, },
+
+    {&funnyAsset_room0_mesh[0], &funnyAsset_room0_collision, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, },
+
     {&JungleLand_extOne_Gfx[0], &JungleLand_extOne_ColH, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, },
     {&JungleLand_extTwo_Gfx[0], &JungleLand_extTwo_ColH, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, },
     {&JungleLand_rockFloor_Gfx[0], &JungleLand_rockFloor_ColH, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, },
@@ -531,34 +550,15 @@ StageModel  JungleLand_stageModels[122] = {
     {&Global_pole_Gfx[0], &Global_pole_ColH, {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, }
 };
 
+
+
 unsigned char JungleLand_rabObjects_Bin[] = {
 0x00, 0x00, 0x00, 0x00, 0x42, 0xC8, 0x00, 0x00, 0x42, 0xC8, 0x00, 0x00, 0x42, 0xC8, 0x00, 0x00, 0x02, 0x00, 0x6E, 0x1C, 0x00, 0x00, 0x00, 0x00, 0x42, 0xC8, 0x00, 0x00, 0x42, 0xC8, 0x00, 0x00, 0x42, 0xC8, 0x00, 0x00, 0x02, 0x00, 0x6E, 0x1C
-};
-
-SpriteActor JungleLand_ext_room0_sprites[] = {
-    { 18,  0,  {-700.0,0.0,-300.0}, {100.0,200.0,200.0}, 1, 0, 60.0, 0, 0, 0, 0, 0,      30, 0, 0,   0},
-    {  2, 82, {-1300.0,0.0,-300.0}, {256.0,200.0,180.0}, 1, 0, 15.0, 0, 0, 0, 0, 0, 255, 255, 255, 255},
-    {  2, 82, {-1400.0,0.0,-100.0}, {256.0,200.0,180.0}, 1, 0, 15.0, 0, 0, 0, 0, 0, 255, 255, 255, 255},
-    {  2, 82,  {1400.0,0.0,-100.0}, {256.0,200.0,180.0}, 1, 0, 15.0, 0, 0, 0, 0, 0, 255, 255, 255, 255},
-    {  2, 82,  {1400.0,0.0,-800.0}, {256.0,200.0,180.0}, 1, 0, 15.0, 0, 0, 0, 0, 0, 255, 255, 255, 255},
-    {  2, 82,  {1400.0,0.0,-400.0}, {256.0,200.0,180.0}, 1, 0, 15.0, 0, 0, 0, 0, 0, 255, 255, 255, 255},
-    {  2, 82,  {1300.0,0.0,1100.0}, {256.0,200.0,180.0}, 1, 0, 15.0, 0, 0, 0, 0, 0, 255, 255, 255, 255},
-    {  2, 82,  {1400.0,0.0,1200.0}, {256.0,200.0,180.0}, 1, 0, 15.0, 0, 0, 0, 0, 0, 255, 255, 255, 255},
-    {  2, 83,  {-1400.0,0.0,600.0}, {256.0,250.0,300.0}, 1, 0, 15.0, 0, 0, 0, 0, 0, 255, 255, 255, 255},
-    {  2, 83,  {-1300.0,0.0,200.0}, {256.0,250.0,300.0}, 1, 0, 15.0, 0, 0, 0, 0, 0, 255, 255, 255, 255},
-    { -1,  0,     {-1.0,-1.0,-1.0},    {-1.0,32.0,32.0}, 1, 0,  0.0, 0, 0, 0, 0, 0,     -1, -1, 0,   0}
 };
 
 SpriteActor JungleLand_room6_sprites[] = {
     { 18, 0, {0.0,0.0,-1400.0}, {100.0,200.0,200.0}, 1, 0, 60.0, 0, 0, 0, 0, 0, 31, 12, 0, 0},
     { -1, 0,  {-1.0,-1.0,-1.0},    {-1.0,32.0,32.0}, 1, 0,  0.0, 0, 0, 0, 0, 0, -1, -1, 0, 0}
-};
-
-SpriteActor JungleLand_ext_room1_sprites[] = {
-    {  2, 82, {-1010.0,300.0,-3337.0}, {256.0,210.0,190.0}, 1, 0, 15.0, 0, 0, 0, 0, 0, 255, 255, 255, 255},
-    {  2, 82, {-2064.0,300.0,-3576.0}, {256.0,200.0,180.0}, 1, 0, 15.0, 0, 0, 0, 0, 0, 255, 255, 255, 255},
-    {  2, 82, {-3055.0,600.0,-4622.0}, {256.0,200.0,180.0}, 1, 0, 15.0, 0, 0, 0, 0, 0, 255, 255, 255, 255},
-    { -1,  0,        {-1.0,-1.0,-1.0},    {-1.0,32.0,32.0}, 1, 0,  0.0, 0, 0, 0, 0, 0,     -1, -1, 0,   0}
 };
 
 SpriteActor JungleLand_ext_roomUnk_sprites[] = {
@@ -571,12 +571,6 @@ SpriteActor JungleLand_ext_roomUnk_sprites[] = {
     {  2, 83, {-2494.0,600.0,-5910.0}, {256.0,250.0,300.0}, 1, 0, 15.0, 0, 0, 0, 0, 0, 255, 255, 255, 255},
     {  2, 83, {-2607.0,600.0,-6098.0}, {256.0,250.0,300.0}, 1, 0, 15.0, 0, 0, 0, 0, 0, 255, 255, 255, 255},
     {  2, 83, {-2607.0,600.0,-6298.0}, {256.0,250.0,300.0}, 1, 0, 15.0, 0, 0, 0, 0, 0, 255, 255, 255, 255},
-    { -1,  0,        {-1.0,-1.0,-1.0},    {-1.0,32.0,32.0}, 1, 0,  0.0, 0, 0, 0, 0, 0,     -1, -1, 0,   0}
-};
-
-SpriteActor JungleLand_ext_room3_sprites[] = {
-    {  2, 82, {-2928.0,600.0,-9535.0}, {256.0,200.0,180.0}, 1, 0, 15.0, 0, 0, 0, 0, 0, 255, 255, 255, 255},
-    {  2, 83, {-3254.0,600.0,-9246.0}, {240.0,240.0,280.0}, 1, 0, 15.0, 0, 0, 0, 0, 0, 255, 255, 255, 255},
     { -1,  0,        {-1.0,-1.0,-1.0},    {-1.0,32.0,32.0}, 1, 0,  0.0, 0, 0, 0, 0, 0,     -1, -1, 0,   0}
 };
 
@@ -700,38 +694,136 @@ Collectable JungleLand_room8_collectables[] = {
     {       0,          {0.0,0.0,0.0}, -1, 0, 0, 0}
 };
 
-RoomObject JungleLand_ext_room1_objects[] = {
-    {          {0.0,0.0,0.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,     JL_EXT_ZERO_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
-    {  {200.0,-10.0,-1200.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,   JL_FERN_PLANT_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 0, 4, 4, 0, -1, 0, 0},
-    {  {-100.0,-5.0,-1200.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,   JL_FERN_PLANT_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 0, 4, 4, 0, -1, 0, 0},
-    {  {-500.0,-5.0,-1100.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,   JL_FERN_PLANT_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 0, 4, 4, 0, -1, 0, 0},
-    {    {-700.0,0.0,-900.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,   JL_FERN_PLANT_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 0, 4, 4, 0, -1, 0, 0},
-    { {-1000.0,-5.0,-1000.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,   JL_FERN_PLANT_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 0, 4, 4, 0, -1, 0, 0},
-    {   {-1100.0,0.0,-800.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,   JL_FERN_PLANT_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 0, 4, 4, 0, -1, 0, 0},
-    {  {-900.0,-10.0,-700.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,   JL_FERN_PLANT_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 0, 4, 4, 0, -1, 0, 0},
-    {  {-1200.0,-5.0,-600.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,   JL_FERN_PLANT_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 0, 4, 4, 0, -1, 0, 0},
-    {   {-866.0,0.0,-1185.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,   JL_FERN_PLANT_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 0, 4, 4, 0, -1, 0, 0},
-    { {-589.0,-10.0,-1346.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,   JL_FERN_PLANT_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 0, 4, 4, 0, -1, 0, 0},
-    {   {-189.0,0.0,-1446.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,   JL_FERN_PLANT_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 0, 4, 4, 0, -1, 0, 0},
-    {  {-789.0,-5.0,-1546.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,   JL_FERN_PLANT_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 0, 4, 4, 0, -1, 0, 0},
-    {    {111.0,0.0,-1346.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,   JL_FERN_PLANT_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 0, 4, 4, 0, -1, 0, 0},
-    {   {-489.0,0.0,-1646.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,   JL_FERN_PLANT_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 0, 4, 4, 0, -1, 0, 0},
-    {   {-89.0,-5.0,-1546.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,   JL_FERN_PLANT_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 0, 4, 4, 0, -1, 0, 0},
-    {          {0.0,0.0,0.0}, {0.0,0.0,0.0}, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0, G_FALLBACK_CUBE_MODEL,  0,  0,  0, NULL, NULL, 0, 0, 0, 0, 0, 0,  0, 0, 0}
+#define NULL_OBJECT {{0.0,0.0,0.0}, {0.0,0.0,0.0}, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0, G_FALLBACK_CUBE_MODEL, 0, 0, 0, NULL, NULL, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+
+RoomObject JungleLand_ext_room1_objects[] = {                                                                                                    //col?
+    {              {0.0,0.0,0.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0, JL_EXT_ZERO_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    {     {2014.17,-1371.33,0.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,  JL_TALL_PLATFORM, -1, -1, -1, NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    {    {3018.03,-1199.31,-454}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,  JL_TALL_PLATFORM, -1, -1, -1, NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    {{3932.89,-1055.58,-1322.19}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,  JL_TALL_PLATFORM, -1, -1, -1, NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    NULL_OBJECT
+};
+
+#define NULL_SPRITE {-1, 0, {-1.0,-1.0,-1.0}, {-1.0,32.0,32.0}, 1, 0, 0.0, 0, 0, 0, 0, 0, -1, -1, 0, 0}
+
+
+
+SpriteActor JungleLand_ext_room0_sprites[] = {
+    //rabbit
+    {18, 0, {700.0,0.0,-300.0}, {100.0,200.0,200.0}, 1, 0, 60.0, 0, 0, 0, 0, 0, 30, /*dIndex*/0, 0, 0},
+    NULL_SPRITE
+};
+
+PlatformKeyframe JL_p1_keyframes[2] = {
+    {{3344.89,506.428,-5476.3}, 0, 60, 0, 0, 0, 0},
+    {{2569.23,506.428,-5476.3}, 0, 90, 0, 0, 0, 0}
+};
+
+PlatformKeyframe JL_p2_keyframes[2] = {
+    {{2404.85,506.428,-5919.6}, 0, 90, 0, 0, 0, 0},
+    {{3344.89,506.428,-5919.6}, 0, 60, 0, 0, 0, 0}
+};
+
+enum RotateModes {
+    ROT_NONE = 0,
+    ROT_X,
+    ROT_Y,
+    ROT_Z
+};
+
+//room 1
+SpriteActor JungleLand_ext_room1_sprites[] = {
+    NULL_SPRITE
 };
 
 RoomObject JungleLand_ext_room2_objects[] = {
-    { {-1500.0,0.0,-3500.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,      JL_EXT_ONE_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
-    {         {0.0,0.0,0.0}, {0.0,0.0,0.0}, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0, G_FALLBACK_CUBE_MODEL,  0,  0,  0, NULL, NULL, 0, 0, 0, 0, 0, 0,  0, 0, 0}
+    {{3983.96,-1046.52,-2517.7}, {2.06798,1.0072,1.4858},     0,                                           0, 7, 0, 0.0, 0.0, 0.0, 0.0,               0, 0, 0, 0, 0, 0,   JL_TALL_PLATFORM, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    {{3983.96,390.827,-3277.67},           {1.0,1.0,1.0},     0,                                           0, 7, 0, 0.0, 0.0, 0.0, 0.0,               0, 0, 0, 0, 0, 0,          JL_STAIRS, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    {{3989.49,477.414,-4392.68},           {1.0,1.0,1.0},     0,                                           0, 7, 0, 0.0, 0.0, 0.0, 0.0,               0, 0, 0, 0, 0, 0,           JL_HINGE, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    {  {4009.93,-857.228,-5393},     {1.71843,1,1.74303},     0,                                           0, 7, 0, 0.0, 0.0, 0.0, 0.0,               0, 0, 0, 0, 0, 0,   JL_TALL_PLATFORM, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    { {3344.89,506.428,-5476.3},           {1.0,1.0,1.0},     0,                                           0, 7,10, 0.0, 0.0, 0.0, 0.0, JL_p1_keyframes, 2, 0, 0, 0, 0, JL_MOVING_PLATFORM, -1, -1, -1, &func_800D90B8, NULL, 0, 0, 7, 4, 4, 0, -1, 0, 0},
+    { {2404.85,506.428,-5919.6},           {1.0,1.0,1.0},     0,                                           0, 7,10, 0.0, 0.0, 0.0, 0.0, JL_p2_keyframes, 2, 0, 0, 0, 0, JL_MOVING_PLATFORM, -1, -1, -1, &func_800D90B8, NULL, 0, 0, 7, 4, 4, 0, -1, 0, 0},
+    {  {2079.06,-857.228,-5393},      {1.0843,1,1.74303}, ROT_Y,             DEGREES_TO_RADIANS_2PI(22.9068), 7, 0, 0.0, 0.0, 0.0, 0.0,               0, 0, 0, 0, 0, 0,   JL_TALL_PLATFORM, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    {{2425.83,477.414,-4558.83}, {0.480513,1.0,0.514434}, ROT_X,            DEGREES_TO_RADIANS_2PI(-11.7083), 7, 0, 0.0, 0.0, 0.0, 0.0,               0, 0, 0, 0, 0, 0,           JL_HINGE, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    {          {0.0,0.0,1050.0},           {1.0,1.0,1.0},     0, DEGREES_TO_RADIANS_2PI(0.02741556724295125), 7, 0, 0.0, 0.0, 0.0, 0.0,               1,40,-1,40, 0, 0,           JL_GRILL, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    {{2409.03,514.244,-3266.35},      {0.545848,1.0,1.0}, ROT_Y,                 DEGREES_TO_RADIANS_2PI(-90), 7, 0, 0.0, 0.0, 0.0, 0.0,               0, 0, 0, 0, 0, 0,           JL_GRILL, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    { {1578.14,642.75,-2846.12},           {1.0,1.0,1.0}, ROT_Z,            DEGREES_TO_RADIANS_2PI(-7.70269), 7, 0, 0.0, 0.0, 0.0, 0.0,               0, 0, 0, 0, 0, 0,           JL_GRILL, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    {{748.174,757.488,-3848.81},           {1.0,1.0,1.0}, ROT_Y,                  DEGREES_TO_RADIANS_2PI(90), 7, 0, 0.0, 0.0, 0.0, 0.0,               0, 0, 0, 0, 0, 0,           JL_GRILL, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    NULL_OBJECT
 };
 
+//room 2
 RoomObject JungleLand_ext_room3_objects[] = {
-    { {-3000.0,600.0,-7000.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,      JL_LOG_ONE_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
-    { {-3000.0,600.0,-7000.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,      JL_EXT_TWO_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
-    { {-4200.0,596.0,-7000.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,   JL_FERN_PLANT_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 0, 4, 4, 0, -1, 0, 0},
-    { {-4100.0,606.0,-6800.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,   JL_FERN_PLANT_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 0, 4, 4, 0, -1, 0, 0},
-    { {-4200.0,596.0,-6500.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,   JL_FERN_PLANT_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 0, 4, 4, 0, -1, 0, 0},
-    {           {0.0,0.0,0.0}, {0.0,0.0,0.0}, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0, G_FALLBACK_CUBE_MODEL,  0,  0,  0, NULL, NULL, 0, 0, 0, 0, 0, 0,  0, 0, 0}
+    {{-82.8858,757.488,-4850.78},        {1.0,1.0,1.0},     0,                                0, 7, 0, 0.0, 0.0, 0.0, 0.0,               0, 0, 0, 0, 0, 0,           JL_GRILL, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    {{-911.899,757.488,-4260.19},   {0.545848,1.0,1.0}, ROT_Y,      DEGREES_TO_RADIANS_2PI(-90), 7, 0, 0.0, 0.0, 0.0, 0.0,               0, 0, 0, 0, 0, 0,           JL_GRILL, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    { {-497.29,757.488,-3668.67},   {0.545848,1.0,1.0},     0,                                0, 7, 0, 0.0, 0.0, 0.0, 0.0,               0, 0, 0, 0, 0, 0,           JL_GRILL, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    {  {-81.615,757.488,-3076.7},   {0.545848,1.0,1.0}, ROT_Y,      DEGREES_TO_RADIANS_2PI(-90), 7, 0, 0.0, 0.0, 0.0, 0.0,               0, 0, 0, 0, 0, 0,           JL_GRILL, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    {{-913.419,757.488,-2485.19},        {1.0,1.0,1.0},     0,                                0, 7, 0, 0.0, 0.0, 0.0, 0.0,               0, 0, 0, 0, 0, 0,           JL_GRILL, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    NULL_OBJECT
+};
+
+// room 3
+SpriteActor JungleLand_ext_room3_sprites[] = {
+    NULL_SPRITE
+};
+
+PlatformKeyframe JL_puzzle2_keyframes[2] = {
+    {{-3538.09,759.91, 2382.39}, 0, 90, 0, 0, 0, 0},
+    {{-3538.09,759.91,-2385.19}, 0, 60, 0, 0, 0, 0}
+};
+
+RoomObject JungleLand_ext_room4_objects[] = {
+    {   {-2115,757.488,-2485.19}, {1.0,1.0,1.0},       0,                                0, 7,  0,      0.0,    0.0,     0.0, 0.0, 0,  0,  0,  0, 0, 0,           JL_HEXAGON, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    {{-3323.97,757.488,-2485.19}, {1.0,1.0,1.0},       0,                                0, 7,  0,      0.0,    0.0,     0.0, 0.0, 0,  0,  0,  0, 0, 0,             JL_GRILL, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    {{-4064.27,757.986,-2471.26},   {1.5,3,0.5},   ROT_Y,     DEGREES_TO_RADIANS_2PI(90.0), 7, 11, -4064.27,1457.986,-2471.26, 0.0, 2, 20, -1, 20, 0, 0, G_JL_CAVE_DOOR_MODEL, -1, -1, 10,           NULL, NULL, 0, 0, 3, 4, 4, 0, -1, 0, 0},
+    {{-4264.27,757.986,-2471.26},   {1.5,3,0.5},   ROT_Y,     DEGREES_TO_RADIANS_2PI(90.0), 7, 11, -4264.27,1457.986,-2471.26, 0.0, 2, 20, -1, 20, 0, 0, G_JL_CAVE_DOOR_MODEL, -1, -1, 11,           NULL, NULL, 0, 0, 3, 4, 4, 0, -1, 0, 0},
+
+    {  {-3038.09,759.91,-3460.5}, {1.0,1.0,1.0},     0,                                0, 7, 0, 0.0, 0.0, 0.0, 0.0,               0, 0, 0, 0, 0, 0,    JL_SQUARE, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    { {-3071.21,759.91,-3474.25}, {1.0,1.0,1.0},     0,                                0, 7, 0, 0.0, 0.0, 0.0, 0.0,               0, 0, 0, 0, 0, 0, G_POLE_MODEL, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    {{-3038.09,1332.69,-4485.91}, {1.0,1.0,1.0},     0,                                0, 7, 0, 0.0, 0.0, 0.0, 0.0,               0, 0, 0, 0, 0, 0,    JL_SQUARE, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    {{-3071.21,1332.69,-4467.51}, {1.0,1.0,1.0},     0,                                0, 7, 0, 0.0, 0.0, 0.0, 0.0,               0, 0, 0, 0, 0, 0, G_POLE_MODEL, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    {{-2160.97,1932.69,-4460.15}, {1.0,1.0,1.0},     0,                                0, 7, 0, 0.0, 0.0, 0.0, 0.0,               0, 0, 0, 0, 0, 0, G_POLE_MODEL, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    {{-1647.37,1432.69,-4460.15}, {2.0,1.0,1.1},     0,                                0, 7, 0, 0.0, 0.0, 0.0, 0.0,               0, 0, 0, 0, 0, 0,    JL_SQUARE, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+
+    {  {-3038.09,759.91,-1563.61}, {1.0,1.0,1.0},     0,                                0, 7, 0, 0.0, 0.0, 0.0, 0.0,               0, 0, 0, 0, 0, 0,              JL_SQUARE, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    {  {-3071.21,759.91,-1563.61}, {1.0,1.0,1.0},     0,                                0, 7, 0, 0.0, 0.0, 0.0, 0.0,               0, 0, 0, 0, 0, 0,           G_POLE_MODEL, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    {  {-3038.09,759.91,-1240.61}, {1.0,1.0,1.0},     0,      DEGREES_TO_RADIANS_2PI(0.0), 7,18, 0.0, 0.0, 0.0, 0.0,               1, 1,90,-1,23, 0,   JL_FALL_BRIDGE_MODEL, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    //{  {-3038.09,759.91, -940.61}, {1.0,1.0,1.0},     0,      DEGREES_TO_RADIANS_2PI(0.0), 7,18, 0.0, 0.0, 0.0, 0.0,               1, 1,90,-1,23, 0,   JL_FALL_BRIDGE_MODEL, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    {  {-3038.09,759.91, -640.61}, {1.0,1.0,1.0},     0,      DEGREES_TO_RADIANS_2PI(0.0), 7,18, 0.0, 0.0, 0.0, 0.0,               1, 1,90,-1,23, 0,   JL_FALL_BRIDGE_MODEL, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    //{  {-3038.09,759.91, -340.61}, {1.0,1.0,1.0},     0,      DEGREES_TO_RADIANS_2PI(0.0), 7,18, 0.0, 0.0, 0.0, 0.0,               1, 1,90,-1,23, 0,   JL_FALL_BRIDGE_MODEL, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    {  {-3038.09,759.91,  -40.61}, {1.0,1.0,1.0},     0,      DEGREES_TO_RADIANS_2PI(0.0), 7,18, 0.0, 0.0, 0.0, 0.0,               1, 1,90,-1,23, 0,   JL_FALL_BRIDGE_MODEL, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    //{  {-3038.09,759.91,  259.39}, {1.0,1.0,1.0},     0,      DEGREES_TO_RADIANS_2PI(0.0), 7,18, 0.0, 0.0, 0.0, 0.0,               1, 1,90,-1,23, 0,   JL_FALL_BRIDGE_MODEL, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    {  {-3038.09,759.91,  559.39}, {1.0,1.0,1.0},     0,      DEGREES_TO_RADIANS_2PI(0.0), 7,18, 0.0, 0.0, 0.0, 0.0,               1, 1,90,-1,23, 0,   JL_FALL_BRIDGE_MODEL, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    //{  {-3038.09,759.91,  859.39}, {1.0,1.0,1.0},     0,      DEGREES_TO_RADIANS_2PI(0.0), 7,18, 0.0, 0.0, 0.0, 0.0,               1, 1,90,-1,23, 0,   JL_FALL_BRIDGE_MODEL, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    {  {-3038.09,759.91, 1159.39}, {1.0,1.0,1.0},     0,      DEGREES_TO_RADIANS_2PI(0.0), 7,18, 0.0, 0.0, 0.0, 0.0,               1, 1,90,-1,23, 0,   JL_FALL_BRIDGE_MODEL, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    //{  {-3038.09,759.91, 1459.39}, {1.0,1.0,1.0},     0,      DEGREES_TO_RADIANS_2PI(0.0), 7,18, 0.0, 0.0, 0.0, 0.0,               1, 1,90,-1,23, 0,   JL_FALL_BRIDGE_MODEL, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    {  {-3038.09,759.91, 1759.39}, {1.0,1.0,1.0},     0,      DEGREES_TO_RADIANS_2PI(0.0), 7,18, 0.0, 0.0, 0.0, 0.0,               1, 1,90,-1,23, 0,   JL_FALL_BRIDGE_MODEL, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+   // {  {-3038.09,759.91, 2059.39}, {1.0,1.0,1.0},     0,      DEGREES_TO_RADIANS_2PI(0.0), 7,18, 0.0, 0.0, 0.0, 0.0,               1, 1,90,-1,23, 0,   JL_FALL_BRIDGE_MODEL, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    {  {-3038.09,759.91, 2382.39}, {1.73637,1.0,1.0},     0,                                0, 7, 0, 0.0, 0.0, 0.0, 0.0,               0, 0, 0, 0, 0, 0,              JL_SQUARE, -1, -1, -1,           NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    { {3344.89,506.428,-5476.3},           {1.0,1.0,1.0},     0,                                0, 7,10, 0.0, 0.0, 0.0, 0.0, JL_puzzle2_keyframes, 2, 0, 0, 0, 0, JL_MOVING_PLATFORM, -1, -1, -1, &func_800D90B8, NULL, 0, 0, 7, 4, 4, 0, -1, 0, 0},
+    NULL_OBJECT
+};
+
+#define NULL_ACTOR {ACTOR_NULL, {0.0,0.0,0.0}, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 0.0, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0, 0, 0}
+
+RoomActor JungleLand_ext_room3_actors[5] = {
+    {  SPIDER_SPAWNER, {-1647.37,1432.69,-5460.15}, 315.0, -2000.0, 2000.0, -5000.0f, 5000.0, -1300.0, 1300.0, 0, 16.0,  0.0, 1.0, 30.0, 10.0f,         0, 0, 0, 16.0f, 10.0f, 60.0f, 30.0f},
+    { MISSILE_SPAWNER, {-1247.37,1632.69,-4660.15},   0.0, -1300.0, -700.0,  -100.0f, 1000.0, -1000.0, 1000.0, 0,  1.0, 10.0, 5.0,  5.0, 6.0f, 490000.0f, 0, 0, 30.0f, 40.0f,  1.0f,     0},
+
+    {  SPIDER_SPAWNER, {-2038.09, 759.91, 2382.39}, 315.0, -2000.0, 2000.0, -5000.0f, 5000.0, -1300.0, 1300.0, 0, 16.0,  0.0, 1.0, 30.0, 11.0f,         0, 0, 0, 16.0f, 10.0f, 60.0f, 30.0f},
+    { MISSILE_SPAWNER, {-3038.09, 959.91, 2382.39},   0.0, -1300.0, -700.0,  -100.0f, 1000.0, -1000.0, 1000.0, 0,  1.0, 10.0, 5.0,  5.0, 6.0f, 490000.0f, 0, 0, 30.0f, 40.0f,  1.0f,     0},
+    NULL_ACTOR
+};
+
+RoomObject JungleLand_ext_room5_objects[] = {
+    {{-5164.33,757.488,-2485.19}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,   JL_GRILL, -1, -1, -1, NULL,           NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    {{-7964.33,757.488,-2485.19}, {7.0,7.0,7.0}, 2, 0, 7, 8, 0.0, 0.0, 0.0, 0.0, 400, 0, 0, 0, 0, 0, JL_HEXAGON, -1, -1, -1, NULL, &func_800D9128, 0, 0, 2, 4, 4, 0, -1, 0, 0},
+    NULL_OBJECT
+};
+
+SpriteActor JungleLand_ext_room5_sprites[] = {
+    {18, 0, {-5864.33,757.488,-2685.19}, {100.0,200.0,200.0}, 1, 0, 60.0, 0, 0, 0, 0, 0, 29, /*dIndex*/1, 0, 0},
+    NULL_SPRITE
 };
 
 RoomActor JungleLand_ext_room7_actors[] = {
@@ -760,34 +852,6 @@ RoomActor JungleLand_ext_room2_actors[] = {
     { ACTOR_NULL,           {0.0,0.0,0.0},   0.0,    0.0,   0.0, 0, 0.0,    0.0,    0.0, 0,  0.0, 0.0,      0.0,   0.0, 0, 0, 0, 0, 0, 0, 0, 0}
 };
 
-RoomObject JungleLand_ext_room4_objects[] = {
-    {  {-200.0,600.0,-12300.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,                G_POLE_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
-    {   {300.0,600.0,-12100.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,                G_POLE_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
-    {  {-800.0,600.0,-11400.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,                G_POLE_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
-    {  {-500.0,600.0,-11100.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,                G_POLE_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
-    { {-1600.0,600.0,-10600.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,                G_POLE_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
-    { {-1300.0,600.0,-10300.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,                G_POLE_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
-    {  {-2500.0,600.0,-9800.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,                G_POLE_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
-    {  {-2100.0,600.0,-9400.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,                G_POLE_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
-    { {-1500.0,600.0,-11000.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,          JL_EXT_THREE_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
-    { {-1500.0,600.0,-11000.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0, JL_EXT_THREE_PART_TWO_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
-    {            {0.0,0.0,0.0}, {0.0,0.0,0.0}, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,       G_FALLBACK_CUBE_MODEL,  0,  0,  0, NULL, NULL, 0, 0, 0, 0, 0, 0,  0, 0, 0}
-};
-
-RoomActor JungleLand_ext_room3_actors[] = {
-    {   HEDGEHOG, {-1800.0,300.0,-10000.0}, 270.0, -2160.0, -1540.0, -5000.0f, 5000.0, -10200.0,  -9700.0, 0, 10.0, 8.0, 640000.0, 500.0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {   HEDGEHOG, {-1000.0,300.0,-10900.0}, 270.0, -1310.0,  -790.0, -5000.0f, 5000.0, -11000.0, -10500.0, 0, 10.0, 8.0, 640000.0, 500.0, 0, 0, 0, 0, 0, 0, 0, 0},
-    {   HEDGEHOG,  {-100.0,300.0,-11700.0}, 270.0,  -410.0,    10.0, -5000.0f, 5000.0, -12100.0, -11500.0, 0, 10.0, 8.0, 640000.0, 500.0, 0, 0, 0, 0, 0, 0, 0, 0},
-    { ACTOR_NULL,            {0.0,0.0,0.0},   0.0,     0.0,     0.0,        0,    0.0,      0.0,      0.0, 0,  0.0, 0.0,      0.0,   0.0, 0, 0, 0, 0, 0, 0, 0, 0}
-};
-
-RoomObject JungleLand_ext_room5_objects[] = {
-    { {2500.0,600.0,-13500.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,     JL_EXT_FOUR_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
-    { {1800.0,600.0,-13250.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,          G_POLE_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
-    { {2900.0,600.0,-13250.0}, {1.0,1.0,1.0}, 0, 0, 7, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0,          G_POLE_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
-    {           {0.0,0.0,0.0}, {0.0,0.0,0.0}, 0, 0, 0, 0, 0.0, 0.0, 0.0, 0.0, 0, 0, 0, 0, 0, 0, G_FALLBACK_CUBE_MODEL,  0,  0,  0, NULL, NULL, 0, 0, 0, 0, 0, 0,  0, 0, 0}
-};
-
 extern Vtx JungleLand_water_Vtx[];
 RoomObject JungleLand_ext_room6_objects[] = {
     { {4500.0,600.0,-17000.0},                               {1.0,1.0,1.0}, 0, 0, 7,  0, 0.0, 0.0, 0.0, 0.0,                     0,  0,  0, 0,    0,     0,     JL_EXT_FIVE_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
@@ -800,13 +864,6 @@ RoomObject JungleLand_ext_room6_objects[] = {
     { {3400.0,430.0,-16200.0},                               {1.0,1.0,1.0}, 0, 0, 7,  0, 0.0, 0.0, 0.0, 0.0,                     0,  0,  0, 0,    0,     0,      JL_LILYPAD_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
     { {4500.0,670.0,-17000.0},                               {1.0,1.0,1.0}, 0, 0, 7, 20, 0.0, 0.0, 0.0, 0.5, &JungleLand_water_Vtx, -2, -2, 5, 9312, 10102,        JL_WATER_MODEL, -1, -1, -1, NULL, NULL, 0, 0, 2, 4, 4, 0, -1, 0, 0},
     {           {0.0,0.0,0.0},                               {0.0,0.0,0.0}, 0, 0, 0,  0, 0.0, 0.0, 0.0, 0.0,                     0,  0,  0, 0,    0,     0, G_FALLBACK_CUBE_MODEL,  0,  0,  0, NULL, NULL, 0, 0, 0, 0, 0, 0,  0, 0, 0}
-};
-
-SpriteActor JungleLand_ext_room5_sprites[] = {
-    {  7, 0, {5000.0,420.0,-16800.0},    {0.0,0.0,0.0}, 1, 0, 15.0, 0, 300.0f, 380.0f, 1.2999999523162842f, 0, 30, 15, 0, 255},
-    {  7, 0, {4500.0,420.0,-15800.0},    {0.0,0.0,0.0}, 1, 0, 15.0, 0, 300.0f, 380.0f, 1.2999999523162842f, 0, 30, 15, 0, 255},
-    {  7, 0, {3400.0,420.0,-16200.0},    {0.0,0.0,0.0}, 1, 0, 15.0, 0, 300.0f, 380.0f, 1.2999999523162842f, 0, 30, 15, 0, 255},
-    { -1, 0,        {-1.0,-1.0,-1.0}, {-1.0,32.0,32.0}, 1, 0,  0.0, 0,      0,      0,                   0, 0, -1, -1, 0,   0}
 };
 
 extern Vtx JungleLand_water2_Vtx[];
@@ -1396,8 +1453,9 @@ s32 JungleLand_spriteLib_Sprlib[] = {
     0,
     0,
     0,
-    57,
-    56,
+
+    SPRITE_SPIDER,
+    SPRITE_PORCUPINE,
     0,
     0,
     0,
@@ -1412,41 +1470,25 @@ s32 JungleLand_spriteLib_Sprlib[] = {
     0,
     0,
     0,
-    56,
-    82,
-    83,
-    111,
-    68,
-    64,
-    65,
-    66,
-    67,
+
+    SPRITE_PORCUPINE,
+    SPRITE_FERN,
+    SPRITE_TREE,
+    SPRITE_SMOKE_CIRCLE,
+    SPRITE_JUNGLELAND_BG5,
+    SPRITE_JUNGLELAND_BG1,
+    SPRITE_JUNGLELAND_BG2,
+    SPRITE_JUNGLELAND_BG3,
+    SPRITE_JUNGLELAND_BG4,
+    SPRITE_SPIDER,
+    SPRITE_MISSILE,
     0,
     0,
     0,
     0,
     0,
-    0,
-    0,
-    57,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    0,
-    57,
-    56,
-    23,
+
+    SPRITE_SPIDER,
     0,
     0,
     0,
@@ -1460,9 +1502,29 @@ s32 JungleLand_spriteLib_Sprlib[] = {
     0,
     0,
     0,
-    57,
-    56,
-    27,
+    0,
+    0,
+
+    SPRITE_SPIDER,
+    SPRITE_PORCUPINE,
+    SPRITE_POWERUP_2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+
+    SPRITE_SPIDER,
+    SPRITE_PORCUPINE,
+    SPRITE_STOPWATCH,
     0,
     0,
     0,
@@ -1477,7 +1539,6 @@ s32 JungleLand_spriteLib_Sprlib[] = {
     0,
     0,
 };
-
 RoomInstance JungleLand_room_instances[] = {
     {         JungleLand_room0_objects, JungleLand_room0_actors, JungleLand_room0_collectables, JungleLand_room0_sprites, 0, 0, 2,  0, -1, 0, 0.0, 10,  1296.0,  400.0,  -260.0, 0.0, 0.0, 0.0,                1.5, 0, 0, 0, 0, 0, 0, 0, 0,    -1.0, 0.0},
     {         JungleLand_room1_objects, JungleLand_room1_actors, JungleLand_room1_collectables,                        0, 0, 0, 1,  0, -1, 0, 0.0, 10,   650.0,  500.0,  1800.0, 0.0, 0.0, 0.0,                1.5, 0, 0, 0, 0, 0, 0, 0, 0,    -1.0, 0.0},
@@ -1506,22 +1567,22 @@ StageMapData JungleLand_map_data = {
     3, 8, JungleLand_room_instances, JungleLand_rooms_map, 
 };
 
-RoomInstance JungleLand_ext_room_instances[] = {
-    { JungleLand_cutscene_room_objects,    JungleLand_roomUnk_actors,                                  0,                             0, 0, 1, 3, 0,  0, 0, 20.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -7000, 9000,      0, 0, 0, 0, 0, 0,    -1.0, 0.0}, // Intro Room
-    {     JungleLand_ext_room1_objects,                            0,  JungleLand_ext_room0_collectables,  JungleLand_ext_room0_sprites, 0, 0, 2, 0,  0, 0, 30.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,     0,    0,      0, 0, 0, 0, 0, 0,    -1.0, 0.0},
-    {     JungleLand_ext_room2_objects,                            0,  JungleLand_ext_room1_collectables,  JungleLand_ext_room1_sprites, 0, 0, 2, 0,  0, 0, 40.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  -430,  100,  -2464, 0, 0, 0, 0, 0,    -1.0, 0.0},
-    {     JungleLand_ext_room3_objects,  JungleLand_ext_room2_actors,  JungleLand_ext_room2_collectables,                             0, 0, 0, 2, 0,  0, 0, 45.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -2964,  950,  -5398, 0, 0, 0, 0, 0,    -1.0, 0.0},
-    {     JungleLand_ext_room4_objects,  JungleLand_ext_room3_actors,  JungleLand_ext_room3_collectables,  JungleLand_ext_room3_sprites, 0, 0, 2, 0,  0, 0, 45.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -2535,  600,  -9371, 0, 0, 0, 0, 0, -1500.0, 0.0},
-    {     JungleLand_ext_room5_objects,                            0,                                  0,                             0, 0, 0, 2, 0,  0, 0, 45.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,   365,  600, -13071, 0, 0, 0, 0, 0, -1500.0, 0.0},
-    {     JungleLand_ext_room6_objects,                            0,  JungleLand_ext_room5_collectables,  JungleLand_ext_room5_sprites, 0, 0, 2, 0,  0, 0, 45.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  4078,  600, -14412, 0, 0, 0, 0, 0, -1600.0, 0.0},
-    {     JungleLand_ext_room7_objects,                            0,  JungleLand_ext_room6_collectables,  JungleLand_ext_room6_sprites, 0, 0, 2, 0,  0, 0, 45.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  4495,  300, -17150, 0, 0, 0, 0, 0, -1700.0, 0.0},
-    {     JungleLand_ext_room8_objects,  JungleLand_ext_room7_actors,  JungleLand_ext_room7_collectables,  JungleLand_ext_room7_sprites, 0, 0, 2, 0,  0, 0, 45.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  6909,  600, -19080, 0, 0, 0, 0, 0, -1800.0, 0.0},
-    {     JungleLand_ext_room9_objects,                            0,  JungleLand_ext_room8_collectables,                             0, 0, 0, 2, 0,  0, 0, 45.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  9955,  600, -18890, 0, 0, 0, 0, 0, -1900.0, 0.0},
-    {    JungleLand_ext_room10_objects,  JungleLand_ext_room9_actors,  JungleLand_ext_room9_collectables,                             0, 0, 0, 2, 0,  0, 0, 45.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 15528,  600, -15000, 0, 0, 0, 0, 0, -1900.0, 0.0},
-    {    JungleLand_ext_room11_objects, JungleLand_ext_room10_actors, JungleLand_ext_room10_collectables,                             0, 0, 0, 2, 0,  0, 0, 45.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 18441,  200, -13972, 0, 0, 0, 0, 0, -2000.0, 0.0},
-    {    JungleLand_ext_room12_objects,                            0, JungleLand_ext_room11_collectables,                             0, 0, 0, 2, 0,  0, 0, 45.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 21447,  200, -12195, 0, 0, 0, 0, 0, -2000.0, 0.0},
-    {    JungleLand_ext_room13_objects,                            0,                                  0, JungleLand_ext_room12_sprites, 0, 0, 2, 0,  0, 0, 45.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 24240, 1200, -12524, 0, 0, 0, 0, 0, -2000.0, 0.0},
-    {                                0,                            0,                                  0,                             0, 0, 0, 0, 0, -1, 0,  0.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,     0,    0,      0, 0, 0, 0, 0, 0,    -1.0, 0.0}
+RoomInstance JungleLand_ext_room_instances[15] = {                                                                                                                                                    //respawn point
+    {JungleLand_cutscene_room_objects,    JungleLand_roomUnk_actors,                                  0,                             0, 0, 1, 3, 0, 0, 0, 20.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -7000, 9000,      0, 0, 0, 0, 0, 0,    -1.0, 0.0}, // Intro Room
+    {    JungleLand_ext_room1_objects,                            0,  JungleLand_ext_room0_collectables,  JungleLand_ext_room0_sprites, 0, 0, 2, 0, 0, 0, 30.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,     0,    0,      0, 0, 0, 0, 0, 0,    -1.0, 0.0},
+    {    JungleLand_ext_room2_objects,                            0,  JungleLand_ext_room1_collectables,  JungleLand_ext_room1_sprites, 0, 0, 2, 0, 0, 0, 40.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  3952, 1051,  -4190, 0, 0, 0, 0, 0,    -1.0, 0.0},
+    {    JungleLand_ext_room3_objects,  JungleLand_ext_room2_actors,  JungleLand_ext_room2_collectables,                             0, 0, 0, 2, 0, 0, 0, 45.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,   -82, 1057,  -4850, 0, 0, 0, 0, 0,    -1.0, 0.0},
+    {    JungleLand_ext_room4_objects,  JungleLand_ext_room3_actors,  JungleLand_ext_room3_collectables,  JungleLand_ext_room3_sprites, 0, 0, 2, 0, 0, 0, 45.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -2115,  857,  -2485, 0, 0, 0, 0, 0, -1500.0, 0.0},
+    {    JungleLand_ext_room5_objects,                            0,                                  0,                             0, 0, 0, 2, 0, 0, 0, 45.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -5164,  757,  -2485, 0, 0, 0, 0, 0, -1500.0, 0.0},
+    {    JungleLand_ext_room6_objects,                            0,  JungleLand_ext_room5_collectables,  JungleLand_ext_room5_sprites, 0, 0, 2, 0, 0, 0, 45.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  4078,  600, -14412, 0, 0, 0, 0, 0, -1600.0, 0.0},
+    {    JungleLand_ext_room7_objects,                            0,  JungleLand_ext_room6_collectables,  JungleLand_ext_room6_sprites, 0, 0, 2, 0, 0, 0, 45.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  4495,  300, -17150, 0, 0, 0, 0, 0, -1700.0, 0.0},
+    {    JungleLand_ext_room8_objects,  JungleLand_ext_room7_actors,  JungleLand_ext_room7_collectables,  JungleLand_ext_room7_sprites, 0, 0, 2, 0, 0, 0, 45.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  6909,  600, -19080, 0, 0, 0, 0, 0, -1800.0, 0.0},
+    {    JungleLand_ext_room9_objects,                            0,  JungleLand_ext_room8_collectables,                             0, 0, 0, 2, 0, 0, 0, 45.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  9955,  600, -18890, 0, 0, 0, 0, 0, -1900.0, 0.0},
+    {   JungleLand_ext_room10_objects,  JungleLand_ext_room9_actors,  JungleLand_ext_room9_collectables,                             0, 0, 0, 2, 0, 0, 0, 45.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 15528,  600, -15000, 0, 0, 0, 0, 0, -1900.0, 0.0},
+    {   JungleLand_ext_room11_objects, JungleLand_ext_room10_actors, JungleLand_ext_room10_collectables,                             0, 0, 0, 2, 0, 0, 0, 45.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 18441,  200, -13972, 0, 0, 0, 0, 0, -2000.0, 0.0},
+    {   JungleLand_ext_room12_objects,                            0, JungleLand_ext_room11_collectables,                             0, 0, 0, 2, 0, 0, 0, 45.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 21447,  200, -12195, 0, 0, 0, 0, 0, -2000.0, 0.0},
+    {   JungleLand_ext_room13_objects,                            0,                                  0, JungleLand_ext_room12_sprites, 0, 0, 2, 0, 0, 0, 45.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 24240, 1200, -12524, 0, 0, 0, 0, 0, -2000.0, 0.0},
+    {                               0,                            0,                                  0,                             0, 0, 0, 0, 0,-1, 0,  0.0, 0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,     0,    0,      0, 0, 0, 0, 0, 0,    -1.0, 0.0}
 };
 
 LevelScope JungleLand_scope_Lvlscope = {
@@ -1548,6 +1609,40 @@ Mtx JungleLand_IMtx2 = IDENTITY;
 
 Lights1 JungleLand_jlScope_Light = 
     #include "assets/levelGroup/JungleLand/jlScope/jlScope.light.inc.c"
+
+
+//images
+//hellmetal
+unsigned char JL_hellmetal_ci4_png[] = {
+#include "build/mod/hellmetal.ci4.png.inc.c"
+};
+unsigned char JL_hellmetal_ci4_pal[] = {
+#include "build/mod/hellmetal.ci4.pal.inc.c"
+};
+
+//metal
+unsigned char JL_metal_ci4_png[] = {
+#include "build/mod/metal.ci4.png.inc.c"
+};
+unsigned char JL_metal_ci4_pal[] = {
+#include "build/mod/metal.ci4.pal.inc.c"
+};
+
+//grill
+unsigned char JL_grill_ci4_png[] = {
+#include "build/mod/gateGray.ia4.png.inc.c"
+};
+
+//gfxs
+#include "mod/room0.gfx.inc.c"
+#include "mod/tall_platform.gfx.inc.c"
+#include "mod/stairs.gfx.inc.c"
+#include "mod/hinge.gfx.inc.c"
+#include "mod/moving_platform.gfx.inc.c"
+#include "mod/grill.gfx.inc.c"
+#include "mod/hexagon.gfx.inc.c"
+#include "mod/square.gfx.inc.c"
+
 
 Vtx JungleLand_lilypad_Vtx[] = {
     #include "assets/levelGroup/JungleLand/lilypad/lilypad.vtx.inc.c"
@@ -2055,15 +2150,6 @@ Mtx JungleLand_IMtx48 = IDENTITY;
 
 Gfx JungleLand_extFour_Gfx[] = {
     #include "assets/levelGroup/JungleLand/extFour/extFour.gfx.inc.c"
-};
-
-Vtx JungleLand_extZero_Vtx[] = {
-    #include "assets/levelGroup/JungleLand/extZero/extZero.vtx.inc.c"
-};
-Mtx JungleLand_IMtx49 = IDENTITY;
-
-Gfx JungleLand_extZero_Gfx[] = {
-    #include "assets/levelGroup/JungleLand/extZero/extZero.gfx.inc.c"
 };
 
 Vtx JungleLand_extOne_Vtx[] = {
@@ -3211,22 +3297,6 @@ ModelCollision JungleLand_extFour_ColH = {
 21, 30, &JungleLand_extFour_ColV[0], &JungleLand_extFour_ColT[0], &JungleLand_extFour_ColS
 };
 
-Vec3f JungleLand_extZero_ColV[] = {
-    #include "assets/levelGroup/JungleLand/extZero/extZero.colV.inc.c"
-};
-
-Vec3w JungleLand_extZero_ColT[] = {
-    #include "assets/levelGroup/JungleLand/extZero/extZero.colT.inc.c"
-};
-
-Rect3D JungleLand_extZero_ColS = {
-    #include "assets/levelGroup/JungleLand/extZero/extZero.colS.inc.c"
-};
-
-ModelCollision JungleLand_extZero_ColH = {
-25, 37, &JungleLand_extZero_ColV[0], &JungleLand_extZero_ColT[0], &JungleLand_extZero_ColS
-};
-
 Vec3f JungleLand_extOne_ColV[] = {
     #include "assets/levelGroup/JungleLand/extOne/extOne.colV.inc.c"
 };
@@ -4059,5 +4129,7 @@ Mtx JungleLand_fishTailInit_Animarr[1][1] = {
 AnimPointer JungleLand_fishTailInitPointers_Animp[1] = {
 {&JungleLand_fishTailInit_Animh.frames, &JungleLand_fishTailInit_Animh.objects, &JungleLand_fishTailInit_Animarr[0][0]}
 };
+
+
 
 s32 alignment_Pad_JL2[] = {0, 0};

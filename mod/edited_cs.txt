@@ -1,0 +1,9 @@
+src/levelGroup/JungleLand.C
+src/img/extImages.c
+src/code/5FF30.c
+src/code/sprite.c
+
+src/chameleons/Davy.c
+src/chameleons/Jack.c
+src/chameleons/Fred.c
+src/chameleons/Linda.c

@@ -807,43 +807,43 @@ unsigned char extImages_DCBG5_ci8_PAL[] = {
 };
 unsigned char extImages_Pad168[] = FILEPAD;
 unsigned char extImages_JLBG1_ci4_PNG[] = {
-#include "build/assets/img/extImages/JLBG1.ci4.png.inc.c"
+#include "build/mod/JLBG1.ci4.png.inc.c"
 };
 unsigned char extImages_Pad169[] = FILEPAD;
 unsigned char extImages_JLBG1_ci4_PAL[] = {
-#include "build/assets/img/extImages/JLBG1.ci4.pal.inc.c"
+#include "build/mod/JLBG1.ci4.pal.inc.c"
 };
 unsigned char extImages_Pad170[] = FILEPAD;
 unsigned char extImages_JLBG2_ci4_PNG[] = {
-#include "build/assets/img/extImages/JLBG2.ci4.png.inc.c"
+#include "build/mod/JLBG2.ci4.png.inc.c"
 };
 unsigned char extImages_Pad171[] = FILEPAD;
 unsigned char extImages_JLBG2_ci4_PAL[] = {
-#include "build/assets/img/extImages/JLBG2.ci4.pal.inc.c"
+#include "build/mod/JLBG2.ci4.pal.inc.c"
 };
 unsigned char extImages_Pad172[] = FILEPAD;
 unsigned char extImages_JLBG3_ci4_PNG[] = {
-#include "build/assets/img/extImages/JLBG3.ci4.png.inc.c"
+#include "build/mod/JLBG3.ci4.png.inc.c"
 };
 unsigned char extImages_Pad173[] = FILEPAD;
 unsigned char extImages_JLBG3_ci4_PAL[] = {
-#include "build/assets/img/extImages/JLBG3.ci4.pal.inc.c"
+#include "build/mod/JLBG3.ci4.pal.inc.c"
 };
 unsigned char extImages_Pad174[] = FILEPAD;
 unsigned char extImages_JLBG4_ci4_PNG[] = {
-#include "build/assets/img/extImages/JLBG4.ci4.png.inc.c"
+#include "build/mod/JLBG4.ci4.png.inc.c"
 };
 unsigned char extImages_Pad175[] = FILEPAD;
 unsigned char extImages_JLBG4_ci4_PAL[] = {
-#include "build/assets/img/extImages/JLBG4.ci4.pal.inc.c"
+#include "build/mod/JLBG4.ci4.pal.inc.c"
 };
 unsigned char extImages_Pad176[] = FILEPAD;
 unsigned char extImages_JLBG5_ci4_PNG[] = {
-#include "build/assets/img/extImages/JLBG5.ci4.png.inc.c"
+#include "build/mod/JLBG5.ci4.png.inc.c"
 };
 unsigned char extImages_Pad177[] = FILEPAD;
 unsigned char extImages_JLBG5_ci4_PAL[] = {
-#include "build/assets/img/extImages/JLBG5.ci4.pal.inc.c"
+#include "build/mod/JLBG5.ci4.pal.inc.c"
 };
 unsigned char extImages_Pad178[] = FILEPAD;
 unsigned char extImages_poleThing_ia8_PNG[] = {
@@ -943,11 +943,11 @@ unsigned char extImages_gameOverTextUnused_ci8_PAL[] = {
 };
 unsigned char extImages_Pad187[] = FILEPAD;
 unsigned char extImages_JungleLandIcon_ci8_PNG[] = {
-#include "build/assets/img/extImages/JungleLandIcon.ci8.png.inc.c"
+#include "build/mod/JungleLandIcon.ci8.png.inc.c"
 };
 unsigned char extImages_Pad188[] = FILEPAD;
 unsigned char extImages_JungleLandIcon_ci8_PAL[] = {
-#include "build/assets/img/extImages/JungleLandIcon.ci8.pal.inc.c"
+#include "build/mod/JungleLandIcon.ci8.pal.inc.c"
 };
 unsigned char extImages_Pad189[] = FILEPAD;
 unsigned char extImages_BombLandIcon_ci8_PNG[] = {
@@ -1163,7 +1163,7 @@ unsigned char extImages_StageSelectBackground_rgba16_PNG[] = {
 };
 unsigned char extImages_Pad242[] = FILEPAD;
 unsigned char extImages_JungleLandText_ia8_PNG[] = {
-#include "build/assets/img/extImages/JungleLandText.ia8.png.inc.c"
+#include "build/mod/JungleLandText.ia8.png.inc.c"
 };
 unsigned char extImages_Pad243[] = FILEPAD;
 unsigned char extImages_AntLandText_ia8_PNG[] = {
@@ -1187,11 +1187,11 @@ unsigned char extImages_GhostCastleText_ia8_PNG[] = {
 };
 unsigned char extImages_Pad248[] = FILEPAD;
 unsigned char extImages_JungleLandText2_ci8_PNG[] = {
-#include "build/assets/img/extImages/JungleLandText2.ci8.png.inc.c"
+#include "build/mod/JungleLandText2.ci8.png.inc.c"
 };
 unsigned char extImages_Pad249[] = FILEPAD;
 unsigned char extImages_JungleLandText2_ci8_PAL[] = {
-#include "build/assets/img/extImages/JungleLandText2.ci8.pal.inc.c"
+#include "build/mod/JungleLandText2.ci8.pal.inc.c"
 };
 unsigned char extImages_Pad250[] = FILEPAD;
 unsigned char extImages_AntLandText2_ci8_PNG[] = {

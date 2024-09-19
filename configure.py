@@ -264,7 +264,7 @@ def build_stuff(linker_entries: List[LinkerEntry]):
     for file in asset_files:
         fileContents = open(file, "r", encoding="utf-8").readlines()
         for line in fileContents:
-            if line.find("build/assets/") == -1: continue
+            if line.find("build/") == -1: continue
             #manual compilation for build/asset files
             if line.find(".png.inc.c") != -1: #is image
                 if not imageOpt:

@@ -59,85 +59,85 @@ However, TEXT_LINE_SIZE is TEXT_LINE_LENGTH * 2, as the EUC-JP characters are st
 
 //JL intro text
 char JL_IntroText[][TEXT_LINE_SIZE] = {
-    "ここはジャングルランド。この不思",
-    "議の世界の入り口です。",
-    NULL_LINE,
+    "ＩＮ  ＬＩＦＥ，  ＡＮＹ  ＰＡＴＨ",
+    "ＹＯＵ  ＣＨＯＯＳＥ  ＷＩＬＬ",
+    "ＢＥ  ＣＯＲＲＥＣＴ．",
 
-    "舌や体の操作が出来るようになった",
-    "ら、タイムアタックに行ってみると",
-    "いいですよ。",
+    "ＲＥＭＥＭＢＥＲ  ＴＯ  ＳＴＡＹ",
+    "ＴＲＵＥ  ＴＯ  ＹＯＵＲＳＥＬＦ！",
+    NULL_LINE,
     
     ""
 };
 
 char AL_Intro_Text_Davy[][TEXT_LINE_SIZE] = {
-    "アリ、アリ、アリの大行進。",
-    "ここは地中深くのアリのステージ。",
-    NULL_LINE,
+    "ＴＨＥ  ＣＯＬＤ  ＷＩＮＤＳ      ",
+    "ＲＵＮ  ＴＨＲＯＵＧＨ  ＴＨＥ    ",
+    "ＥＭＰＴＹ  ＡＩＲ．．．          ",
 
-    "数え切れないほどのアリたちが、",
-    "デイビーの行く手をふさいで",
-    "います。",
+    "ＣＡＮ  ＹＯＵ  ＳＵＲＶＩＶＥ？  ",
+    "ＷＨＯ  ＡＭ  Ｉ  ＫＩＤＤＩＮＧ，",
+    "ＹＥＳ  ＹＯＵ  ＣＡＮ！         ",
 
     ""
 };
 
 char AL_Intro_Text_Jack[][TEXT_LINE_SIZE] = {
-    "アリ、アリ、アリの大行進。",
-    "ここは地中深くのアリのステージ。",
-    NULL_LINE,
+    "ＦＯＲ  Ａ  ＬＩＦＥＬＥＳＳ      ",
+    "ＤＯＬＬ，  Ｉ  ＤＩＤＮ’Ｔ      ",
+    "ＴＨＩＮＫ  ＲＵＭＭＡＧＩＮＧ    ",
 
-    "数え切れないほどのアリたちが、",
-    "ジャックの行く手をふさいで",
-    "います。",
-
-    ""
-};
-
-char AL_Intro_Text_Linda[][TEXT_LINE_SIZE] = {
-    "アリ、アリ、アリの大行進。",
-    "ここは地中深くのアリのステージ。",
-    NULL_LINE,
-
-    "数え切れないほどのアリたちが、",
-    "リンダの行く手をふさいで",
-    "います。",
+    "ＩＮ  ＡＮ  ＡＢＡＮＤＯＮＥＤ    ",
+    "ＦＡＣＴＯＲＹ  ＷＡＳ  ＵＰ      ",
+    "ＹＯＵＲ  ＡＬＬＥＹ！           ",
 
     ""
 };
 
 char AL_Intro_Text_Fred[][TEXT_LINE_SIZE] = {
-    "アリ、アリ、アリの大行進。",
-    "ここは地中深くのアリのステージ。",
-    NULL_LINE,
+    "ＡＲＥ  ＹＯＵ  ＳＵＲＥ  ＹＯＵ  ",
+    "ＡＲＥ  ＣＵＴ  ＯＵＴ  ＦＯＲ    ",
+    "ＴＨＩＳ？  ＮＯ  ＰＲＥＳＳＵＲＥ",
 
-    "数え切れないほどのアリたちが、",
-    "フレッドの行く手をふさいで",
-    "います。",
+    "ＩＦ  ＹＯＵ  ＡＲＥ  ＳＣＡＲＥＤ",
+    "Ｉ  ＵＮＤＥＲＳＴＡＮＤ．ＴＡＫＥ",
+    "Ａ  ＲＥＳＴ  ＦＩＲＳＴ！       ",
+
+    ""
+};
+
+char AL_Intro_Text_Linda[][TEXT_LINE_SIZE] = {
+    "ＹＯＵ  ＬＯＯＫ  ＶＥＲＹ        ",
+    "ＵＮＥＮＴＨＵＳＥＤ．  ＷＨＹ    ",
+    "ＡＲＥ  ＹＯＵ  ＨＥＲＥ？        ",
+
+    "ＴＯ  ＢＥ  ＢＯＲＩＮＧ？  ＢＥ", 
+    "ＢＯＲＩＮＧ  ＳＯＭＥＷＨＥＲＥ   ",
+    "ＥＬＳＥ！  ＳＨＯＯ！",
 
     ""
 };
 
 char AL_Intro_Text_Black[][TEXT_LINE_SIZE] = {
-    "アリ、アリ、アリの大行進。",
-    "ここは地中深くのアリのステージ。",
-    NULL_LINE,
+    "ＨＥＹ  ＮＯＷ，ＹＯＵ  ＣＡＮ’Ｔ",
+    "ＢＥ  ＨＥＲＥ！  ＹＯＵ  ＫＮＯＷ",
+    "ＷＨＡＴ  ＹＯＵ’ＶＥ  ＤＯＮＥ",
 
-    "数え切れないほどのアリたちが、",
-    "ブラックの行く手をふさいで",
-    "います。",
+    "ＳＣＲＡＭ  ＢＥＦＯＲＥ  ＴＨＥ",
+    "ＦＡＣＴＯＲＹ  ＢＥＡＴＳ  ＹＯＵ",
+    "ＴＯ  Ａ  ＰＵＬＰ！",
 
     ""
 };
 
 char AL_Intro_Text_White[][TEXT_LINE_SIZE] = {
-    "アリ、アリ、アリの大行進。",
-    "ここは地中深くのアリのステージ。",
-    NULL_LINE,
+    "ＮＩＣＥ  ＳＥＥＩＮＧ  ＹＯＵ",
+    "ＨＥＲＥ，  ＷＨＩＴＥ！",
+    "Ｉ  ＮＥＥＤ  Ａ  ＦＡＶＯＲ．．．",
 
-    "数え切れないほどのアリたちが、",
-    "ホワイトの行く手をふさいで",
-    "います。",
+    "ＪＵＳＴ  ＫＩＤＤＩＮＧ！   ",
+    "ＹＯＵ’ＬＬ  ＨＡＶＥ  ＴＯ  ",
+    "ＷＡＩＴ  ＦＯＲ  ＴＨＡＴ！",
 
     ""
 };
@@ -526,8 +526,8 @@ char GC_Boss_Text_White[][TEXT_LINE_SIZE] = {
 char (*Dialogue[CHARA_TOTAL][20])[TEXT_LINE_SIZE] = {
     //Davy
     {
-    JL_IntroText,
     AL_Intro_Text_Davy,
+    JL_IntroText,
     BL_Intro_Text,
     KL_Intro_Text,
     DC_Intro_Text,
@@ -549,8 +549,8 @@ char (*Dialogue[CHARA_TOTAL][20])[TEXT_LINE_SIZE] = {
 
     //Jack
     {
-    JL_IntroText,
     AL_Intro_Text_Jack,
+    JL_IntroText,
     BL_Intro_Text,
     KL_Intro_Text,
     DC_Intro_Text,
@@ -572,8 +572,8 @@ char (*Dialogue[CHARA_TOTAL][20])[TEXT_LINE_SIZE] = {
 
     //Fred
     {
-    JL_IntroText,
     AL_Intro_Text_Fred,
+    JL_IntroText,
     BL_Intro_Text,
     KL_Intro_Text,
     DC_Intro_Text,
@@ -595,8 +595,8 @@ char (*Dialogue[CHARA_TOTAL][20])[TEXT_LINE_SIZE] = {
 
     //Linda
     {
-    JL_IntroText,
     AL_Intro_Text_Linda,
+    JL_IntroText,
     BL_Intro_Text,
     KL_Intro_Text,
     DC_Intro_Text,
@@ -618,8 +618,8 @@ char (*Dialogue[CHARA_TOTAL][20])[TEXT_LINE_SIZE] = {
 
     //Black
     {
-    JL_IntroText,
     AL_Intro_Text_Black,
+    JL_IntroText,
     BL_Intro_Text,
     KL_Intro_Text,
     DC_Intro_Text,
@@ -641,8 +641,8 @@ char (*Dialogue[CHARA_TOTAL][20])[TEXT_LINE_SIZE] = {
 
     //White
     {
-    JL_IntroText,
     AL_Intro_Text_White,
+    JL_IntroText,
     BL_Intro_Text,
     KL_Intro_Text,
     DC_Intro_Text,

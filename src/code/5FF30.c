@@ -7384,8 +7384,8 @@ s32 func_800A5778(s32 arg0) {
 //i just dont enjoy having 5 copies of the same word
 #define land "ＬＡＮＤ"
 #define castle "ＣＡＳＴＬＥ"
-const char D_8010EBA4[] = "ＪＵＮＧＬＥ";
-const char D_8010EBB4[] = land;
+const char D_8010EBA4[] = "ＦＲＩＧＨＴ";
+const char D_8010EBB4[] = "ＦＡＣＴＯＲＹ";
 const char D_8010EBC0[] = "ＡＮＴ";
 const char D_8010EBC8[] = land;
 const char D_8010EBD4[] = "ＢＯＭＢ";
